@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HWForma4</title>
+</head>
+<body>
+    <form action="forma4.html" method="get">
+        <label>
+            <select name="citi">
+                <option value="1">Минск</option>
+                <option value="2">Москва</option>
+                <option value="3">Киев</option>
+                <option value="4" selected>Нью Йорк</option>
+                <option value="5">Варшава</option>
+                <option value="6">Рига</option>
+                <option value="7">Рим</option>
+            </select>
+
+            <select  multiple name="city[]" size="3">
+                <option value="1">Минск</option>
+                <option value="2">Москва</option>
+                <option value="3">Киев</option>
+                <option value="4" selected>Нью Йорк</option>
+                <option value="5">Варшава</option>
+                <option value="6">Рига</option>
+                <option value="7">Рим</option>
+            </select>
+
+            <select multiple name="city[]" size="5">
+                <option value="1">Минск</option>
+                <option value="2">Москва</option>
+                <option value="3">Киев</option>
+                <option value="4" selected>Нью Йорк</option>
+                <option value="5">Варшава</option>
+                <option value="6">Рига</option>
+                <option value="7">Рим</option>
+            </select>
+            <button type="submit"> Отправить на сервер</button>
+        </label>
+    </form>
+</body>
+</html>

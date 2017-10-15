@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HWForma3</title>
+</head>
+<body>
+    <form action="forma3.html" method="get">
+        <label>
+            <input type="checkbox" name="checkbox">
+            Это метка для чекбокса: нажмите на меня - чекбокс сменит галочку!
+        </label>
+        <br>
+
+        <label>
+            <input type="checkbox" name="checkbox" value="1" checked>
+            Я отмечен по умолчанию!
+        </label>
+        <br>
+
+        <label>
+            <input type="checkbox" value="disabled" disabled value="1" checked>
+            Я disabled!
+        </label>
+        <br>
+
+        Это группа радиокнопок - только одна из них может быть отмечена!
+        <br>
+        <label>
+            <input type="radio" name="radio" value="1" >
+            Это метка для радио
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="radio" value="2" >
+            Это метка для радио
+        </label>
+        <br>
+        <button type="submit"> Отправить на сервер</button>
+    </form>
+</body>
+</html>
