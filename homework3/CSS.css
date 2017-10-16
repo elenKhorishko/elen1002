@@ -1,7 +1,7 @@
 h1 {
     font-family: sans-serif;
     color: red;
-    text-align: -moz-left;
+    text-align: center;
 }
 
 ul {
@@ -24,8 +24,9 @@ div em strong {
     color: blue;
 }
 
-block em {
+block em  {
     color: blue;
+    font-weight: bold;
 }
 
 block strong {
@@ -43,11 +44,11 @@ div {
     text-align: justify;
 }
 
+
 block {
-
-    text-align: text-align:justify;
+    text-align: justify;
     line-height: 30px;
-
+}
 
 
 
