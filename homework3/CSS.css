@@ -1,0 +1,100 @@
+h1 {
+    font-family: sans-serif;
+    color: red;
+    text-align: center;
+}
+
+ul {
+    color: brown;
+}
+
+h2 {
+    color: green;
+}
+
+ol {
+    color: red;
+}
+
+div em {
+    color: blue;
+}
+
+block strong {
+    color: red;
+}
+
+em strong {
+    color: red;
+}
+
+div {
+    text-align: justify;
+}
+
+block {
+    text-align: left;
+    line-height: 30px;
+    margin: 20px 20px 20px 50px;
+    padding: 10px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+div {
+    border-bottom: 1px solid gray;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form input {
+    background-color: lightblue;
+}
+
+form div > input {
+    background-color: coral;
+}
+
+label {
+    color: #80681c;
+    color: rgb(128,104,28);
+}
+
+.block {
+    border: 1px solid blue;
+    width: 60%;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: underline;
+    font-style: italic;
+    font-family: "Arabic Typesetting", "Segoe UI Semibold", sans-serif;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.inside {
+    float: right;
+    width: 150px;
+    padding: 20px;
+    background: beige;
+    margin: 15px;
+    border-radius: 10px;
+}
