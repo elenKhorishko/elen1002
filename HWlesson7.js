@@ -117,13 +117,11 @@ function getMaxSubSum(arr) {
 alert(getMaxSubSum(arr));
 
 
-
 //ссылка заданий 2 - задание 1
 var mas = [15, 'hello', 'trump', 23, 'world', 999, 176];
 for (var i = 0; i < mas.length; i++) {
-    alert('---' + mas[i]); // console.log ('---' + mas[i]);
+    document.write('---' + mas[i] + "<br>"); // alert('---' + mas[i]) // console.log ('---' + mas[i]);
 }
-
 
 
 // задание 2
@@ -138,10 +136,9 @@ var arr = [2, 3, 4, 5, 6, 4, 77, 32, 4];
 var arr2 = [];
 var s = moreFife(arr, 5);
 for (var i = 0; i < arr2.length; i++) {
-    alert('-' + arr2[i]); // console.log ('-' + arr2[i]);
+    document.write('-' + arr2[i] + "<br>"); // alert('-' + arr2[i]) // console.log ('-' + arr2[i]);
 }
 */
 
 
 //ссылка заданий 3 - задание 1
-
