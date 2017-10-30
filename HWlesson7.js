@@ -1,5 +1,5 @@
 'use strict';
-/*
+
 // ссылка заданий 1 - задание 1
 var goods = [];
 alert(goods.length);
@@ -138,7 +138,172 @@ var s = moreFife(arr, 5);
 for (var i = 0; i < arr2.length; i++) {
     document.write('-' + arr2[i] + "<br>"); // alert('-' + arr2[i]) // console.log ('-' + arr2[i]);
 }
-*/
 
 
 //ссылка заданий 3 - задание 1
+var person = {};
+person.name = 'Елена'
+person.age = 39;
+person.sex = 'жен';
+person.personalNumber = 1234567899;
+console.log(person);
+
+
+// задание 2
+var person = {
+    name: 'Елена',
+    age: 39,
+    sex: 'жен',
+    personalNumber: 1234567899
+};
+console.log(person);
+var key = 'age';
+var yearOfBirt = '2017' - person[key];
+alert(yearOfBirt);
+
+
+// задание 3
+var obj = {
+   mas: [5, 6, 34, 12, 45]
+};
+var key = 'mas';
+var result = obj[key].reduce(function(sum, current) {
+        return sum + current;
+}, 0);
+alert( result );
+
+
+// задание 4
+var goods = {
+    "12121": {
+        "name": "Холодильник",
+        "cost": "5000 грн.",
+        "weight": "12 кг",
+        "photo": "http://artlife.rv.ua/uploads/Image/statti/A/w49.jpg",
+        "availability": "есть в наличии"
+    },
+    "13131": {
+        "name": "Телевизор",
+        "cost": "12000 грн.",
+        "weight": "8 кг",
+        "photo": "http://liberton.ua/gallery/goods_img/PDP-5030-ABUV-AF2.png",
+        "availability": "нет в наличии"
+    },
+    "14141": {
+        "name": "Компьютер",
+        "cost": "30000 грн.",
+        "weight": "6 кг",
+        "photo": "http://www.fainaidea.com/wp-content/uploads/2017/05/kompyuter_bu.jpg",
+        "availability": "есть в наличии"
+    }
+};
+console.log(goods);
+document.write(goods[12121].name + " - " + goods[12121].cost + goods[12121].weight + "<br>" + goods[12121].photo + "<br>" + goods[12121].availability + "<br>" + "<br>");
+
+
+// задание 5
+var day = {
+    "d1" : "Понедельник",
+    "d2" : "Вторник",
+    "d3" : "Среда",
+    "d4" : "Четверг"
+};
+for (var key in day) {
+    document.write(key + " - " + day[key] + "<br>");
+}
+
+
+// задание 6
+var arr = {
+    "k1" : "17w4",
+    "k2" : "1sfsg7",
+    "k3" : "17nd",
+    "k16" : "1237",
+    "k14" : "1w37",
+    "3k1" : "1wrw7"
+};
+for (var key in arr) {
+    document.write(key + " *** " + arr[key] + "<br>");
+}
+
+
+// задание 7 - списала в интернете)))
+var arr = {
+    "k1" : "17w4",
+    "k2" : "1sfsg7",
+    "k3" : "17nd",
+    "k16" : "1237",
+    "k14" : "1w37",
+    "3k1" : "1wrw7"
+};
+console.log(arr);
+var sArr = JSON.stringify(arr);
+localStorage.setItem("arr", sArr);
+localStorage.arr;
+console.log(arr);
+var mass = JSON.parse(localStorage.getItem("arr"));
+console.log(mass);
+
+
+// задание 8
+var goods = {
+    "dd" : {
+        name: "Яблоки",
+        cost: 13
+    },
+    "dc" : {
+        name: "Груши",
+        cost: 23
+    },
+    "cd" : {
+        name: "Абрикосы",
+        cost: 33
+    },
+    "dee" : {
+        name: "Сливы",
+        cost: 43
+    },
+    "dd2" : {
+        name: "Вишни",
+        cost: 19
+    }
+};
+for (var key in goods) {
+    if (goods[key].cost > '20')
+        document.write(goods[key].name + " - " + goods[key].cost + "<br>");
+}
+
+
+
+// задание 9
+var goods = {
+    "apple" : {
+        "name": "Яблоки",
+        "cost": 230,
+        "amount":300
+    },
+    "pear" : {
+        "name": "Груши",
+        "cost": 34,
+        "amount":100
+    },
+    "apricot" : {
+        "name": "Абрикосы",
+        "cost": 23,
+        "amount":170
+    },
+    "plum" : {
+        "name": "Сливы",
+        "cost": 21,
+        "amount":250
+    },
+    "cherry" : {
+        "name": "Вишни",
+        "cost": 19,
+        "amount":312
+    }
+};
+for (var key in goods) {
+    if (goods[key].cost > '220' && goods[key].cost < '300' && goods[key].amount > '200')
+        document.write(goods[key].name + " - " + goods[key].cost + "<br>");
+};
