@@ -3,6 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+
+        .expand {
+            display: none;
+        }
+        .active .slide {
+            display: none;
+        }
+        .active .expand {
+            display: inline;
+        }
+    </style>
+
 </head>
 <body>
     <input type="number" id="op1" placeholder="Operand 1" value="0">
@@ -13,6 +26,22 @@
     <button id="divide">/</button>
     <span id="result">0</span>
 
+    <div style="height: 300px">
+        <div id="panel" style="height: 300px; background-color: green"></div>
+    </div>
+
+    <button id="slide">
+        <span class="slide">Свернуть</span>
+        <span class="expand">Развернуть</span>
+    </button>
+    <button id="hide">
+        <span class="slide">Растворить</span>
+        <span class="expand">Показать</span>
+    </button>
+
+    <a id="load" href="content.html" target="#panel">Загрузить</a>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script src="miniCalc.js"></script>
 </body>
 </html>
