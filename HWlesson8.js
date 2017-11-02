@@ -2,7 +2,7 @@
 
 $(document).ready(function (){
     // задача 1
-    $('h2').html('!');
+    $('h2').html('!!!!!!!!!!!!');
 
     // задача 2
     $('h3').css('color','red');
@@ -19,30 +19,43 @@ $(document).ready(function (){
     //задача 6
     $('p + p').css('color', 'green')
 
-    //задача 7 ??????????????????????????????????????????
+    //задача 7 ????????красит только следующий li а не все последующие??????????????
     $('li.www + li').css('color', 'yellow')
 
-
-
-
-
-
-
-    //задача 5
- //   $(':header').css('color', 'red');
-
-    //задача 6
-//    $(':header.zzz').css('color', 'blue');
-
-    //задача 7
-//    $(':header:not(.zzz)').css('color', 'orange');
-
-    //задача 8
-  //  $('li').each(function (index, element) {
- //       $(element).html(index+1);
-  //  })
+    //задача 8 ?????????????? непонятно чем отличается 'i внутри h3' от "i непосредственно внутри h3"???????
+    $('h3 i').css('color', 'red');
 
     //задача 9
+    $('h3 > i').css('color', 'purple');
 
+    //задача 10
+    $(':header').css('color', 'red');
+
+    //задача 11
+    $('h2:not(.test)').css('color', 'green')
+
+    //задача 12
+    $(':header:not(.test)').css('color', 'blue');
+
+    //задача 13
+    $(':header + :header').css('color', 'green');
+
+    //задача 16
+    $('p:first').css('color', 'red');
+
+    //задача 17
+    $('p:last').css('color', 'red');
+
+    //задача 19
+    $('h3:has(i)').css('color', 'aqua');
+
+    //задача 20 то же самое что в задание 9!!!
+    $('h3 > i').css('color', 'purple');
+
+    //задача 21
+    $('li:eq(2)').css('color', 'Chartreuse');
+
+    //задача 23
+    $('li:lt(9)').css('color', 'DeepPink');
 
 });
