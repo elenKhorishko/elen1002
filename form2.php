@@ -20,6 +20,7 @@
     </style>
 </head>
 <body>
+
     <?php foreach ($errors as $error) { ?>
         <p class="error"><?= $error ?></p>
     <?php }?>

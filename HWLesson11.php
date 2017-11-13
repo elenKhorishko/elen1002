@@ -1,10 +1,3 @@
-<?php
-/***
- * @var array $user;
- * $user_info;
- */
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,45 +6,68 @@
 </head>
 <body>
 <h1>
-    Таблица зарегистрированных пользователей
+    Таблица зарегистрированных пользователей - 1
 </h1>
 
 <?php
-
-$fp = fopen("users.txt", "r");
-while (!feof($fp)) {
-        $value = fgets($fp, 999).'<br>';
-        $user = explode("\t", $value);
-        print_r($user);
-        $user =
-        }
-fclose($fp);
-
-
-$user2 = file('users.txt');
-
+$users = "users.txt";
+$arr = file( $users );
 ?>
 
 <table border="1">
     <tr>
-        <th>Имя</th>
-        <th>Фамилия</th>
-        <th>Email</th>
+        <th>№ п/п</th>
+        <th>ФИО пользователя, e-mail, телефон</th>
+    </tr>
+
+    <?php foreach($arr as $key => $value) {
+    $value = explode('|', $value);
+    ?>
+
+        <tr>
+            <td><?=$key+1?></td>
+            <td><?=$value[0]?></td>
+        </tr>
+
+    <?php
+        };
+    ?>
+</table>
+
+
+<h1>
+    Таблица зарегистрированных пользователей - 2
+</h1>
+
+<table border="1">
+    <tr>
+        <th>№ п/п</th>
+        <th>Имя пользователя</th>
+        <th>Фамилия пользователя</th>
+        <th>e-mail</th>
         <th>Телефон</th>
     </tr>
+
+<?php
+$users2 = fopen("users.txt", "r");
+$key2 = 1;
+while (!feof($users2)) {
+        $value2 = fgets($users2, 999).'<br>';
+        $user2 = explode("\t", $value2);
+        ?>
+
     <tr>
-        <td><?= $user[0]; ?></td>
-        <td><?= $user[1]; ?></td>
-        <td><?= $user[2]; ?></td>
-        <td><?= $user[3]; ?></td>
+        <td><?=$key2?></td>
+        <td><?=$user2[0]?></td>
+        <td><?=$user2[1]?></td>
+        <td><?=$user2[2]?></td>
+        <td><?=$user2[3]?></td>
     </tr>
-    <tr>
-        <td>Николай</td>
-        <td>Сидоров</td>
-        <td>1000$</td>
-        <td>1000$</td>
-    </tr>
-</table>
+
+    <?php
+    $key2++; }
+fclose($users2);
+?>
 
 </body>
 </html>
