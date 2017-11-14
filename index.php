@@ -1,19 +1,16 @@
 <?php
 
 include 'lib.php';
+include  'User.php';
+include 'premiumUser.php';
+
 // include_once 'lib.php'; require 'lib.php'; аналоги
 
-$user = [
-    'first_name' => '',
-    'last_name' => '',
-    'email' => '',
-    'phone' => '',
-    'confirm' => false,
-    ];
+$user = new PremiumUser('FSGSG');
+
 $errors =[];
 if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
-    $user = processRequest($user);
-    $errors = validateUser($user);
+    $errors = $user -> processRequest($_POST);
 
     if (!$errors) {
         saveUser2($user);
