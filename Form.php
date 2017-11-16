@@ -14,5 +14,24 @@
 
 class Form
 {
+    public $first_name;
+    public $last_name;
+    public $email;
+    public $phone;
+    public $array = array(
+        'type' => 'text',
+        'value' => '!!!',
+    );
 
+    public function __construct($arr){
+        $this->mas=$arr;
+    }
+    public function input(){
+        echo $this->mas[0].$this->mas[1];
+    }
 }
+$arr=array(10,23);
+$obj=new Form($arr);
+
+$obj->input();
+
