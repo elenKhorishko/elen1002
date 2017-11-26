@@ -17,11 +17,12 @@ setcookie('age6', mt_rand(10, 70), time()+ (mktime(00,00,00,01,01,2018) - time()
 // Сделайте счетчик посещения сайта посетителем. Каждый раз, заходя на сайт,
 // он должен видеть надпись: 'Вы посетили наш сайт % раз!'.
 
-session_start();
-if (!isset($_SESSION['counter'])) {
-    $_SESSION['counter'] = 1;
+setcookie('count', '0');
+if (!isset($_COOKIE['count'])) {
+    $_COOKIE['count'] = 1;
 } else {
-    $_SESSION['counter'] += 1;
-    echo "Вы посетили наш сайт " . $_SESSION['counter'] . ' раз!'. '<br>';
+    $_COOKIE['count'] += 1;
+    setcookie('count', $_COOKIE['count']);
+    echo "Вы посетили наш сайт " . $_COOKIE['count'] . ' раз!'. '<br>';
 }
 ?>
