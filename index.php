@@ -1,37 +1,50 @@
 <?php
-include 'Worker.php';
 
-//Задача 1
-$pdo = new PDO('mysql:host=localhost;dbname=skillup;charset=utf8','root','');
-$sql = 'SELECT * FROM workers WHERE id = 3'; // id IN (3, 4)
-$result = $pdo->query($sql);
-while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-    var_dump($row);
-}
+//писали в консоле
 
-//Задача 2
-$pdo = new PDO('mysql:host=localhost;dbname=skillup;charset=utf8','root','');
-$sql = 'SELECT * FROM workers WHERE salary = 500'; //
-$result = $pdo->query($sql);
-while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-    var_dump($row);
-}
+SELECT d.name "отдел", w.name "сотрудник"
+  FROM workers w
+JOIN departmens d ON w.department_id = d.id
 
-//Задача c Классом
-$pdo = new PDO('mysql:host=localhost;dbname=skillup;charset=utf8','root','');
-$sql = 'SELECT * FROM workers WHERE salary = 500'; //
-$result = $pdo->query($sql);
-while ($row = $result->fetchObject(Worker::class)) {
-    var_dump($row);
-}
 
-//Задача c Классом 2
-$pdo = new PDO('mysql:host=localhost;dbname=skillup;charset=utf8','root','');
-$sql = 'SELECT * FROM workers WHERE salary = :salary';
-$result = $pdo->prepare($sql);
-$result->execute(['salary' => 500]);
+    SELECT d.name "отдел", w.name "сотрудник"
+FROM workers w LEFT JOIN departmens d ON w.department_id = d.id
 
-while ($row = $result->fetchObject(Worker::class)) {
-    var_dump($row);
-}
+    SELECT d.name "отдел", w.name "сотрудник"
+FROM workers w LEFT JOIN departmens d ON w.department_id = d.id
+WHERE w.department_id IS NULL
+
+SELECT d.name "отдел", COUNT(w.id)
+FROM departmens d JOIN workers w ON w.department_id = d.id
+GROUP BY d.name
+//считает сотрудников в отделе
+
+
+SELECT d.name "отдел", COUNT(w.id), SUM(w.salary), MIN(w.salary), MAX(w.salary)
+FROM departmens d JOIN workers w ON w.department_id = d.id
+GROUP BY d.name
+//считает среднюю, мин и макс зарплаты
+
+SELECT d.name "отдел", COUNT(w.id), GROUP_CONCAT(w.name SEPARATOR ', '), SUM(w.salary), MIN(w.salary), MAX(w.salary)
+FROM departmens d JOIN workers w ON w.department_id = d.id
+GROUP BY d.name
+//дает список сотрудников через запятую
+
+
+SELECT d.name "отдел", COUNT(w.id), GROUP_CONCAT(w.name SEPARATOR ', '), SUM(w.salary), MIN(w.salary), MAX(w.salary)
+FROM departmens d LEFT JOIN workers w ON w.department_id = d.id
+GROUP BY d.name
+  HAVING COUNT(w.id) > 2
+ORDER BY d.name
+// сортировка по имени
+
+SELECT d.name "отдел", w.name
+FROM departmens d LEFT JOIN workers w ON w.department_id = d.id
+WHERE w.name = 'Кирилл'
+// отдел по сотруднику
+
+SELECT d.name "отдел", (SELECT MAX(w.salary) FROM departmens d LEFT JOIN workers w ON w.department_id = d.id) max_salary
+FROM departmens d
+//максимальная зарплата в отделах
+
 
