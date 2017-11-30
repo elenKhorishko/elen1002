@@ -1,50 +1,30 @@
-<?php
+//Задание 1
+//Выбрать Id заказа и соответствующих пользователей из таблицы users,
+//у которых записи в таблице orders имеют status = 0;
 
-//писали в консоле
-
-SELECT d.name "отдел", w.name "сотрудник"
-  FROM workers w
-JOIN departmens d ON w.department_id = d.id
-
-
-    SELECT d.name "отдел", w.name "сотрудник"
-FROM workers w LEFT JOIN departmens d ON w.department_id = d.id
-
-    SELECT d.name "отдел", w.name "сотрудник"
-FROM workers w LEFT JOIN departmens d ON w.department_id = d.id
-WHERE w.department_id IS NULL
-
-SELECT d.name "отдел", COUNT(w.id)
-FROM departmens d JOIN workers w ON w.department_id = d.id
-GROUP BY d.name
-//считает сотрудников в отделе
+SELECT o.order_id "№ заказа", u1.name "Имя"
+FROM orders o LEFT JOIN users1 u1 ON u1.users_id = o.users_id
+WHERE o.status = '0';
 
 
-SELECT d.name "отдел", COUNT(w.id), SUM(w.salary), MIN(w.salary), MAX(w.salary)
-FROM departmens d JOIN workers w ON w.department_id = d.id
-GROUP BY d.name
-//считает среднюю, мин и макс зарплаты
 
-SELECT d.name "отдел", COUNT(w.id), GROUP_CONCAT(w.name SEPARATOR ', '), SUM(w.salary), MIN(w.salary), MAX(w.salary)
-FROM departmens d JOIN workers w ON w.department_id = d.id
-GROUP BY d.name
-//дает список сотрудников через запятую
+//Задание 2
+//Выбрать пользователей у которых есть невыполненные заказы, status = 0;
+
+SELECT u1.name "Имя", count(o.status) "Количество невыполненных заказов"
+FROM orders o LEFT JOIN users1 u1 ON u1.users_id = o.users_id
+WHERE o.status = '0'
+GROUP BY u1.name
 
 
-SELECT d.name "отдел", COUNT(w.id), GROUP_CONCAT(w.name SEPARATOR ', '), SUM(w.salary), MIN(w.salary), MAX(w.salary)
-FROM departmens d LEFT JOIN workers w ON w.department_id = d.id
-GROUP BY d.name
-  HAVING COUNT(w.id) > 2
-ORDER BY d.name
-// сортировка по имени
+//Задание 3
+//Выбрать Id, имя, и кол-во заказов всех пользователей из таблицы users,
+//у которых 3 и больше записей поля 'status' = '1' в таблице orders
 
-SELECT d.name "отдел", w.name
-FROM departmens d LEFT JOIN workers w ON w.department_id = d.id
-WHERE w.name = 'Кирилл'
-// отдел по сотруднику
-
-SELECT d.name "отдел", (SELECT MAX(w.salary) FROM departmens d LEFT JOIN workers w ON w.department_id = d.id) max_salary
-FROM departmens d
-//максимальная зарплата в отделах
+SELECT u1.users_id "users_id", u1.name "Имя", count(o.order_id) "Количество выполненных заказов"
+FROM orders o LEFT JOIN users1 u1 ON u1.users_id = o.users_id
+WHERE o.status = '1'
+GROUP BY u1.name
+HAVING COUNT(o.status) >= 3
 
 
