@@ -4,7 +4,7 @@
 
 SELECT o.order_id "№ заказа", u1.name "Имя"
 FROM orders o LEFT JOIN users1 u1 ON u1.users_id = o.users_id
-WHERE o.status = '0';
+WHERE o.status = '0'
 
 
 
